@@ -1,80 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="authoring-tool" content="Adobe_Animate_CC">
-<title>text_in_time</title>
-<script src="text_in_time.js"></script>
-<script>
-var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-function init() {
-	canvas = document.getElementById("canvas");
-	anim_container = document.getElementById("animation_container");
-	dom_overlay_container = document.getElementById("dom_overlay_container");
-	var comp=AdobeAn.getComposition("AECAF45A1A11422CA62BFA6A60064412");
-	var lib=comp.getLibrary();
-	handleComplete({},comp);
-}
-function handleComplete(evt,comp) {
-	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-	var lib=comp.getLibrary();
-	var ss=comp.getSpriteSheet();
-	exportRoot = new lib.Untitled1();
-	stage = new lib.Stage(canvas);	
-	//Registers the "tick" event listener.
-	fnStartAnimation = function() {
-		stage.addChild(exportRoot);
-		createjs.Ticker.setFPS(lib.properties.fps);
-		createjs.Ticker.addEventListener("tick", stage);
-	}	    
-	//Code to support hidpi screens and responsive scaling.
-	function makeResponsive(isResp, respDim, isScale, scaleType) {		
-		var lastW, lastH, lastS=1;		
-		window.addEventListener('resize', resizeCanvas);		
-		resizeCanvas();		
-		function resizeCanvas() {			
-			var w = lib.properties.width, h = lib.properties.height;			
-			var iw = window.innerWidth, ih=window.innerHeight;			
-			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-			if(isResp) {                
-				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-					sRatio = lastS;                
-				}				
-				else if(!isScale) {					
-					if(iw<w || ih<h)						
-						sRatio = Math.min(xRatio, yRatio);				
-				}				
-				else if(scaleType==1) {					
-					sRatio = Math.min(xRatio, yRatio);				
-				}				
-				else if(scaleType==2) {					
-					sRatio = Math.max(xRatio, yRatio);				
-				}			
-			}			
-			canvas.width = w*pRatio*sRatio;			
-			canvas.height = h*pRatio*sRatio;
-			canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';				
-			canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
-			stage.scaleX = pRatio*sRatio;			
-			stage.scaleY = pRatio*sRatio;			
-			lastW = iw; lastH = ih; lastS = sRatio;            
-			stage.tickOnUpdate = false;            
-			stage.update();            
-			stage.tickOnUpdate = true;		
-		}
-	}
-	makeResponsive(false,'both',false,1);	
-	AdobeAn.compositionLoaded(lib.properties.id);
-	fnStartAnimation();
-}
-</script>
-<!-- write your code here -->
+<table style="background-color:#e0e0e0;height:222px;" width="637">
+<tbody>
+<tr>
+<th><strong>videos</strong></th>
+<th><strong>poems</strong></th>
+<th><strong>electronic literature directory</strong></th>
+<th><strong>writing</strong></th>
+</tr>
+<tr>
+<td><strong><a href="http://www.inpatientpress.com/blog/2016/3/8/theadora-walsh"> 21st and Park</a></strong></td>
+<td><strong><a href="http://wp.me/P8DDGs-Y">AAAAAA</a></strong></td>
+<td><strong><a href="http://directory.eliterature.org/individual-work/4825"> Big Data Poetry</a></strong></td>
+<td><strong> <a href="http://writingcircuits.com/"> writing circuits </a></strong></td>
+</tr>
+<tr>
+<td><strong><a href="http://theadorawalsh.com/buttermilk/" target="_blank" rel="noopener noreferrer">Buttermilk</a></strong></td>
+<td><a href="https://theadorawalsh.wordpress.com/bbbbbb"><strong>BBBBBB</strong></a></td>
+<td><a href="http://directory.eliterature.org/individual-work/863"><strong>Entre Ville</strong></a></td>
+<td><strong><a href="http://www.electronicbookreview.com/thread/electropoetics/aestheticized">animated animism</a></strong></td>
+</tr>
+<tr>
+<td><strong><a href="http://theadorawalsh.com/times-square/">Times Square</a></strong></td>
+<td><a href="http://theadorawalsh.com/ccccc/"><strong>CCCCCC</strong></a></td>
+<td><strong><a href="http://directory.eliterature.org/individual-work/4846">Notes</a></strong></td>
+<td><strong><a href="theadorawalsh.com/the-pregnant-avatar-seeing-oneself-in-c-sections-surrogates-and-sonograms"> pregnant avatar </a></strong></td>
+</tr>
+<tr>
+<td><strong><a href="http://unbag.net/project/subway/">Subway</a></strong></td>
+<td><strong> YYYYY</strong></td>
+<td><strong> <a href="http://directory.eliterature.org/individual-work/391">Anipoems</a></strong></td>
+<td><strong><a href="https://entropymag.org/new-fiction-by-theadora-walsh-serious-deprivation/">serious deprivation</a></strong></td>
+</tr>
+<tr>
+<td><strong><a href="http://oral.pub/mad/am/"> Bus Stop</a></strong></td>
+<td><strong>  <a href="http://apogeejournal.org/2017/07/17/poetry-theadora-walsh/">on may day</a></strong></td>
+<td> <strong><a href="http://directory.eliterature.org/individual-work/4946">@everyword</a></strong></td>
+<td><strong><a href="http://cosmonautsavenue.com/theadora-walsh-jellyfish/">jellyfish</a></strong></td>
+</tr>
+</tbody>
+</table>
 </head>
-<body onload="init();" style="margin:0px;">
-	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:1000px; height:1000px">
-		<canvas id="canvas" width="1000" height="1000" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
-		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1000px; height:1000px; position: absolute; left: 0px; top: 0px; display: block;">
-		</div>
-	</div>
-</body>
 </html>

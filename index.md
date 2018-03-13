@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="authoring-tool" content="Adobe_Animate_CC">
-<title>text_20in_20time</title>
+<title>text_in_time</title>
 <script src="text_in_time.js"></script>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
